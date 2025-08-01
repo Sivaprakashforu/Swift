@@ -1,0 +1,80 @@
+import Foundation
+
+
+var userName: String = "Hello"
+var userIsPremimum:Bool = false
+var userIsNew: Bool = true
+
+
+func getUserName() -> String{
+    userName
+}
+
+func getUserIsPremimum() -> Bool {
+    userIsPremimum
+}
+
+func getUserIsNew() -> Bool {
+    userIsNew
+}
+
+//limited to 1 return type
+func getUserInfo() -> String {
+    let name = getUserName()
+    let isPremimum = getUserIsPremimum()
+    
+    //Just Returning one Value
+    return name
+}
+
+getUserInfo()
+
+
+//Tuple can combine multiple pieces of data
+func getUserInfo1() -> (String, Bool, Bool){
+    let name = getUserName()
+    let isPremimum = getUserIsPremimum()
+    let isNew = getUserIsNew()
+    
+    //Two Values are been Returned
+    return (name, isPremimum, isNew)
+}
+
+var userData1: String = userName
+var userData2: (String, Bool, Bool) = (userName, userIsPremimum, userIsNew)
+
+
+let info1 = getUserInfo1()
+let name1: String = info1.0 //String
+//let name1: String = info1.1 Would be error and its little confussing too.
+
+func getUserInfo2() -> (name2  : String, isPremimum2 : Bool, isNew2 : Bool){
+    let name2 = getUserName()
+    let isPremimum2 = getUserIsPremimum()
+    let isNew2 = getUserIsNew()
+    
+    //Two Values are been Returned
+    return (name2, isPremimum2, isNew2)
+}
+
+let info2 = getUserInfo2()
+
+//now the values are been given to the pieces of the data so that we are able to call them easily in time of calling the fucntion
+let name3 : String = info2.name2
+let Premimum : Bool = info2.isPremimum2
+
+
+//In this function we call the variable directly from global and been return
+func getuserinfo3() -> (name : String, isPremimum : Bool, isNew : Bool){
+    return (userName, userIsPremimum, userIsNew)
+}
+
+func doSomething(info: (name: String, isPremimum: Bool, isNew: Bool)){
+    
+}
+
+
+let info3 = getuserinfo3()
+doSomething(info: info3)
+
+
