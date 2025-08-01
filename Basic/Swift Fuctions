@@ -1,0 +1,286 @@
+import Foundation
+
+
+//functions declared as func. Chain of Function are function executes
+func myFirstFunction(){
+    print("My First Function is Called.")
+    mySecondFunction()
+}
+
+func mySecondFunction(){
+    print("My Second Funciton is Called.")
+    myThirdFunction()
+}
+
+func myThirdFunction(){
+    print("My Third Function is Called.")
+}
+
+myFirstFunction()
+
+func getUserName(){
+    let username = "Deepak"
+    print(username)
+}
+
+getUserName()
+
+//Userscope - Global and local
+//Global
+
+let username1 = "Karthick"//Global
+
+func getUserName1(){
+    print(username1)
+}
+
+var user = username1
+getUserName1()
+
+print(user)
+
+//local
+func getUserpass(){
+    let userpass = "RajKumar"//Local
+    print(userpass)
+}
+
+getUserpass()
+
+//Return Function
+
+func getUserpass1() -> String {
+    let userpass1: String = "Babu"
+    print(userpass1)
+    return userpass1
+}
+
+getUserpass1()
+let name: String = getUserpass1()
+func checkIfUserIsPremium() -> Bool {
+    return false
+}
+
+//Checking Status through function
+showFirstScreen()
+
+func showFirstScreen(){
+    let userDidCompleteOnboarding1: Bool = false
+    let userProfileIsCreated1: Bool = true
+    let status = checkUserStatus1(didCompleteOnboarding: userDidCompleteOnboarding1, profileIsCreated: userProfileIsCreated1)
+    
+    if status == true{
+        print("Show Home Screen")
+    }else{
+        print("Show Onboarding Screen")
+    }
+}
+
+func checkUserStatus1(didCompleteOnboarding: Bool, profileIsCreated: Bool) -> Bool{
+    if didCompleteOnboarding && profileIsCreated{
+        doSomethingElse(someValue: didCompleteOnboarding)
+        return true
+    }else{
+        return false
+    }
+}
+
+func doSomethingElse(someValue: Bool){
+    
+}
+
+//---
+doSomething()
+
+func doSomething() -> Void {
+    print("Execute")
+}
+
+doSomething1()
+
+func doSomething1() -> Void{
+    let isNew: Bool = false
+    
+    if isNew {
+        print("New")
+    }else{
+        print("Old")
+    }
+}
+
+doSomething2()
+
+func doSomething2() -> String{
+    let isNew: Bool = false
+ 
+    if isNew{
+        return "New"
+    }else{
+        return "Old"
+    }
+}
+
+
+
+doSomething3()
+
+func doSomething3() -> String{
+    let title: String = "Avengers"
+ 
+    if title == "Avenger"{
+        return "Marvel"
+    }else{
+        return "Not Marvel"
+    }
+}
+
+func addition1() -> Int{
+    //let number1 = 1
+    //let number2 = 3
+    return number1 + number2
+}
+
+let result3 = addition1()
+
+print(result3)
+
+doNothing()
+
+func doNothing(){
+    let title1: String = "GBU"
+    
+    guard title1 == "GBU" else{
+        print("Worst Movie")
+        return
+    }
+    
+    print("Nice Movie")
+}
+
+checkIfTitleIsAvengers()
+checkIfTitleIsAvengers1()
+
+func checkIfTitleIsAvengers() -> Bool {
+    let title: String = "Avengers"
+    
+    //"Make sure title == Avengers
+    guard title == "Avengers" else{
+        return false
+    }
+    return true
+}
+
+func checkIfTitleIsAvengers1() -> Bool {
+    let title: String = "Avengers"
+    
+    //"Make sure title == Avengers
+    if title == "Avengers"{
+        return true
+    }else{
+        return false
+    }
+}
+
+func donothing2(){
+    print ("\nName of the Person: ")
+    let name = "Divya"
+    print(name)
+    let num1 = 5000
+    let num2 = 10000
+    print("Salary: ",num1 + num2)
+    print ("Type of the Work: ")
+    let doingThing1 = true
+    let doingThing2 = true
+    let check = checkStatus1(doingThing: doingThing1, doingThings: doingThing2)
+    
+    if check == true{
+        print("Office Work")
+    }else{
+        print("Purchase")
+    }
+    
+    let fullDay=22
+    let halfday=4
+   
+    print(calcu(numb1: fullDay, numb2: halfday)," Days")
+    
+}
+
+func checkStatus1(doingThing:Bool,doingThings:Bool)->Bool{
+    if doingThing && doingThings{
+        return true
+    }else{
+        return false
+    }
+}
+
+
+func calcu(numb1:Int,numb2:Int)->Int{
+    return numb1 + numb2
+}
+
+
+//Calculated variables are basically functions
+
+let number1 = 15
+let number2 = 8
+
+func calculateNumber() -> Int{
+    return number1 + number2
+}
+
+func calculateNumber(value1: Int, value2: Int) -> Int{
+    return value1 + value2
+}
+
+let result1 = calculateNumber()
+let result2 = calculateNumber(value1: number1, value2: number2)
+
+print(result1)
+print(result2)
+
+print("\nSample Test\n")
+
+donothing2()
+
+donothing1()
+
+
+func donothing1(){
+    let name1 = "Priya"
+    print("\nName of the Person : ", name1)
+    let genSal = 10000
+    let addSal = 5000
+    print("Salary : ",genSal+addSal)
+    
+    let type1 = true
+    let type2 = true
+    
+    let check = checkStatusOf(typeOne: type1, typeTwo: type2)
+    
+    if check==true{
+        print("Type of the Work: Office")
+    }else{
+        print("Type of the Work: Purchase")
+    }
+    
+    let FullDay = 22
+    let halfDay = 4
+        
+    print("Days Present: ", calcu1(fullDay: FullDay, HalfDay: halfDay),"Days")
+    
+}
+
+func checkStatusOf(typeOne : Bool,typeTwo : Bool)->Bool{
+    if typeOne && typeTwo{
+        return true
+    }
+    else
+    {
+        return false
+    }
+}
+
+func calcu1(fullDay : Int,HalfDay : Int) -> Int{
+    return fullDay+HalfDay
+}
