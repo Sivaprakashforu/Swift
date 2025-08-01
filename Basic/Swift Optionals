@@ -1,0 +1,254 @@
+import Foundation
+
+//It is the Normal Boolean Value, that is true or False
+var myBool: Bool = true
+print (myBool)
+
+//It is a Optional Value, that is true or False or Nil
+var OtherBool : Bool? = nil
+
+print (OtherBool)
+
+OtherBool = true
+print (OtherBool)
+
+OtherBool = false
+print (OtherBool)
+
+OtherBool = nil
+print (OtherBool)
+
+OtherBool = true
+
+//newValue is assigned to OtherBool as Optional Value
+let newValue: Bool? = OtherBool
+
+//newValue2 is assigned to OtherBool as Normal Value
+var newValue2: Bool = OtherBool ?? false
+
+//newValue2 = false
+
+print(newValue)
+
+print("New Value2 : \(newValue2.description)")
+
+var myString : String? = "Hello, World!"
+
+//Set Default Value as - There is no Value!
+print(myString ?? "There is no Value!")
+
+myString = "This is my Test"
+
+//let newString = myString ?? "Some Default Value"
+
+var userIsPremium: Bool? = nil
+
+func checkIfUserIsPremium() -> Bool?{
+    return userIsPremium
+}
+
+func checkIfUserIsPremium2() -> Bool {
+    return userIsPremium ?? false
+}
+
+let IsPremium = checkIfUserIsPremium2()
+
+print(IsPremium)
+
+
+//if-let
+//When if-let is successful, enter the closure
+func checkIfUserIsPremium3()->Bool{
+    
+    //if there is a value, let a newValue Equal that value
+    if let newValue = userIsPremium{
+        //Here we have access to the non-optional value
+        return newValue
+    }
+    else{
+        return false
+    }
+    
+}
+
+print(checkIfUserIsPremium3)
+
+print(IsPremium)
+
+//print(userIsPremium)
+/*New Feature its not working in this Version
+ func checkIfUserIsPremium4() -> Bool? {
+    if let userIsPremium{
+        return userIsPremium
+    }
+    return userIsPremium
+}*/
+
+
+//Guard
+//When a guard is failure, enter the closure
+func checkIfUserIsPremium5() -> Bool{
+    
+    /*Guard check if there is a Value
+     If, there is a Value equal that value
+     Else/Otherwise it execute the else Value
+     */
+    guard let newValue = userIsPremium else{
+        //Handle the failure case (e.g., return, break, continue, throw)
+        return false
+    }
+    //Code that executes only the condition is true
+    return newValue
+    
+}
+
+checkIfUserIsPremium5()
+
+//-------------------Some Complex Example-------------------------
+
+var userIsnew: Bool? = true
+var userDidCompleteOnBoarding: Bool? = true
+var userFavoriteMovie: String? = "GBU"
+
+checkIfUserIsSetup()
+
+func checkIfUserIsSetup() -> Bool {
+    if let isNew = userIsnew, let didCompleteOnboarding = userDidCompleteOnBoarding, let favoriteMovie = userFavoriteMovie{
+        /*userIsNew == Bool AND
+         userDidCompleteOnBoarding == Bool
+         userFavoriteMovie == Bool
+        */
+        return getUserStatus(
+            userIsNew: isNew,
+            userDidCompleteOnboarding: didCompleteOnboarding,
+            userFavoriteMovie: favoriteMovie)
+    }else{
+        /*
+         userIsNew == nil OR
+         userDidCompleteOnBoarding == nil OR
+         userFovriteMovie == nil
+         */
+        return false
+    }
+}
+
+func getUserStatus(userIsNew: Bool, userDidCompleteOnboarding: Bool, userFavoriteMovie: String) -> Bool{
+    if userIsNew && userDidCompleteOnboarding {
+        return true
+    }
+    return false
+}
+
+func checkIfUserIsSetup1() -> Bool{
+    guard let isNew = userIsnew,
+          let didCompleteOnboarding = userDidCompleteOnBoarding,
+          let favoriteMovie = userFavoriteMovie else{
+        /*userIsnew == nil OR
+        userDidCompleteOnBoarding == nil OR
+        userFavoriteMovie == nil*/
+        return false
+    }
+    /*
+     userIsNew == Bool AND
+     userDidCompleteOnboarding == Bool AND
+     userFavoriteMovie == String
+     */
+    return getUserStatus(userIsNew: isNew,
+                         userDidCompleteOnboarding: didCompleteOnboarding,
+                         userFavoriteMovie: favoriteMovie)
+}
+
+checkIfUserIsSetup1()
+
+checkIfUserSetup2()
+
+func checkIfUserSetup2() -> Bool {
+    
+    if let isNew = userIsnew {
+        //userIsNew == Bool
+        
+        if let didCompleteOnboarding = userDidCompleteOnBoarding{
+            //userDidcompleteOnboarding == Bool
+            
+            if let favoriteMovie = userFavoriteMovie{
+                //userFavoriteMovie
+                return getUserStatus(userIsNew: isNew, userDidCompleteOnboarding: didCompleteOnboarding, userFavoriteMovie: favoriteMovie)
+            }else{
+                //userFavoriteMovie == nil
+                return false
+            }
+        }else{
+            //userDidCompleteOnBoarding == nil
+            return false
+        }
+    }
+    else{
+        //userIsnew == nil
+        return false
+    }
+    
+    guard let isNew = userIsnew else {
+       //userIsNew == nil
+        return false
+    }
+    
+    //userIsNew == Bool
+    guard let didCompleteOnboarding = userDidCompleteOnBoarding else {
+        //userDidCompleteOnboarding == nil
+        return false
+    }
+    
+    //userIsNew == Bool AND userDidCompleteOnBoarding == Bool
+    guard let favoriteMovie = userFavoriteMovie else {
+        //userFavoriteMovie == nil
+        return false
+    }
+    
+    //userIsNew == Bool AND userDidCompleteOnBoarding == Bool AND userFavoriteMovie == Bool
+    return getUserStatus(userIsNew: isNew,
+                         userDidCompleteOnboarding: didCompleteOnboarding,
+                         userFavoriteMovie: favoriteMovie)
+    
+}
+
+//Optional Chaining
+
+func getUsername() -> String? {
+    return "test"
+}
+
+func getTitle() -> String{
+    return "title"
+}
+
+func getUserData() {
+    let username: String? = getUsername()
+    
+    //Get the count if the username is not nill.
+    let count: Int? = username?.count ?? 0
+    
+    let title: String = getTitle()
+    
+    //Always get the count even it's nill.
+    let count2 = title.count
+    
+    //if username has a value, and first character in username has a value, then return the value of isLowercase
+    let firstCharacterIsLowercased = username?.first?.isLowercase ?? false
+    
+    //explicitly unwrap optional
+    //if we get 100% sure on the count will come and username not nil use ! instead of ?
+    //This will crash the Application if the username is Nil!
+    let count3: Int = username!.count
+}
+
+getUserData()
+
+//Topics in Optional
+//safely unwrap an optional
+//explicitly unwrap optional
+//nil coalscing
+//if-let
+//guard
+
+
+
