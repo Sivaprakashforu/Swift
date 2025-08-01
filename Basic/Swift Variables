@@ -1,0 +1,52 @@
+import Foundation
+
+//constant
+let someConstant: Bool = true
+
+//Variable
+var someVaraible: Bool = true
+
+// Cannot assign to value: 'someConstant' is a 'let' constant
+//someConstant = false
+
+someVaraible = false
+
+
+var myNumber = 1.234
+print(myNumber)
+
+myNumber = 2
+print(myNumber)
+
+myNumber = 234.156
+print(myNumber)
+
+myNumber = 1
+print(myNumber)
+
+myNumber = 1234.45
+print(myNumber)
+
+
+//if Statements
+
+var userIsPremium: Bool = false
+
+if userIsPremium == true{
+    print("1 - User is Premium")
+}else{
+    print("1.1 - User is not Premium")
+}
+
+if userIsPremium {
+    print("2 - User is Premium")
+}
+
+if userIsPremium == false{
+    print("3 - User is Not Premium")
+}
+
+if !userIsPremium {
+    print("4 - User is Not Premium")
+}
+
