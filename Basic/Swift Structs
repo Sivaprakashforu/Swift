@@ -1,0 +1,195 @@
+import Foundation
+
+//https://www.tutorialspoint.com/swift/swift_initialization.htm
+//Structs are Fast!
+//Structs are stored in the Stack(memory)
+//Objects in the Stack are Value types
+//Value types are copied & mutated
+
+struct rectangle {
+
+    var length: Double
+    var breadth: Double
+    
+    //Initialzer without parameters
+    init() {
+        length = 6
+        breadth = 12
+    }
+
+}
+
+var area = rectangle()
+print("area of rectangle is \(area.length*area.breadth)")
+
+
+struct rectangle0 {
+
+    //Properties with default Value
+    var length = 6
+    var breadth = 12
+
+}
+
+var area1 = rectangle0()
+print("area of rectangle is \(area1.length*area1.breadth)")
+
+
+struct rectangle1 {
+    var length: Double
+    var breadth: Double
+    var area: Double
+   
+    //Initialzer with parameters
+    init(fromLength length: Double, fromBreadth breadth: Double){
+        self.length = length
+        self.breadth = breadth
+        area = length * breadth
+    }
+}
+
+    //Instance of Structure
+let ar = rectangle1(fromLength: 6, fromBreadth: 12)
+print("Area is: \(ar.area)")
+
+//Own Test Program
+struct square {
+    var side: Double
+    var area: Double
+    
+    init(fromLength side: Double){
+        self.side = side
+        area = side * side
+    }
+}
+
+//Instance of Structure
+let arr = square(fromLength: 8)
+print("Area is: \(arr.area)")
+
+
+//Local and External Parameters
+
+struct Days{
+    //Properties
+    let sunday, monday, tuesday: Int
+    
+    //Initializer with parameter names
+    init(sunday: Int, monday: Int, tuesday: Int){
+        self.sunday = sunday
+        self.monday = monday
+        self.tuesday = tuesday
+    }
+}
+
+//Instance of structure
+let week = Days(sunday: 1, monday: 2, tuesday: 3)
+print("Day of the Week is: \(week.sunday)")
+print("Day of the Week is: \(week.monday)")
+print("Day of the week is: \(week.tuesday)")
+
+
+//Parameters without Exteranal Names _ Underscore used for that
+
+struct rectangle4{
+    var length: Double
+    
+    init(frombreadth breadth: Double){
+        length = breadth * 10
+    }
+    
+    init(frombre bre:Double){
+        length = bre * 30
+    }
+    
+    init(_ area: Double){
+        length = area
+    }
+}
+
+let rectarea = rectangle4(180.0)
+print("area is: \(rectarea.length)")
+let rearea = rectangle4(370.0)
+print("area is: \(rearea.length)")
+let recarea = rectangle4(110.0)
+print("area is: \(recarea.length)")
+
+
+//-----Youtube Example----Swiftful Thinking
+
+//Immutable struct = all let constants are not mutable and cannot mutate it!
+struct UserModel {
+    let name: String
+    let isPremimum: Bool
+}
+
+var user1: UserModel = UserModel(name: "Nick", isPremimum: false)
+
+func markUserAsPremium(){
+    print(user1)
+    user1 = UserModel(name: user1.name,isPremimum:true)
+    print(user1)
+}
+markUserAsPremium()
+
+struct UserModel2 {
+    let name: String
+    var isPremimum: Bool
+}
+
+var user2 = UserModel2(name: "Nick", isPremimum: false)
+
+func markUserAsPremium2(){
+    print(user2)
+    user2.isPremimum = true
+    print(user2)
+}
+
+markUserAsPremium2()
+
+//----------------------
+
+//immutable struct
+
+struct UserModel3{
+    let name: String
+    let isPremimum: Bool
+    
+    func markUserAsPremium(newValue: Bool) -> UserModel3{
+        return UserModel3(name: name, isPremimum: newValue)
+    }
+}
+
+var user3: UserModel3 = UserModel3(name: "Nick", isPremimum: false)
+user3 = user3.markUserAsPremium(newValue:true)
+
+//-----------------------
+
+//mutable struct
+struct UserModel4{
+    let name: String
+    private(set) var isPremimum: Bool
+    
+    mutating func markUserAsPremium() {
+        isPremimum = true
+    }
+    
+    mutating func updateIsPremimum(newValue: Bool){
+        isPremimum = newValue
+    }
+}
+
+var user4 = UserModel4(name: "Nick", isPremimum: false)
+user4.markUserAsPremium()
+user4.updateIsPremimum(newValue: true)
+
+struct User5{
+    let name:String
+    let isPremimum:Bool
+    let isNew: Bool
+    //
+}
+
+
+
+
