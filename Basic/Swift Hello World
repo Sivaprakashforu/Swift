@@ -1,0 +1,36 @@
+import Foundation
+
+var greeting = "Hello, Playground."
+
+print(greeting)
+print(greeting)
+print(greeting)
+
+// This is a Single-line Comment
+
+/* Hello,
+ This a
+ Multi-line
+ Comment*/
+
+//Name Conventions
+
+//Camel Case - Correct!
+// The first word is lowercase and then the first character in every following word is uppercased.
+
+let firstGreeting = "Hello, World!"
+let thisIsMyFirstGreeeting = "Hello, world"
+
+// wrong
+let thisismysecondgreeting = "Hello, world"
+
+// Snake Case - wrong
+let this_is_what_snake_case_looks_like = "Hello, world"
+
+// Pascal Case - wrong
+let ThisIsWhatPascalCaseLooksLike = "Hello, world"
+
+// Camel Case - Right
+let thisIsWhatCamelCaseLooksLike = "Hello, world"
+
+//print (thisIsWhatCamelCaseLooksLike)
