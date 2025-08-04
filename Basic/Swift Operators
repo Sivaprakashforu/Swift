@@ -90,7 +90,13 @@ var userIsPremium: Bool = true
 var userIsNew: Bool = false
 
 if userIsPremium && userIsNew {
-    
+    print ("It's Fine")
+}else if userIsPremium{
+    print ("Old Users data are Only Fine")
+}else if userIsNew{
+    print ("New User data are Only Fine")
+}else{
+    print("Something Wrong")
 }
 
 if likes > 3 && comments > 0 || view > 50{
