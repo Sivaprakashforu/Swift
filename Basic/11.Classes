@@ -1,0 +1,56 @@
+import Foundation
+
+/*
+Classes are little slow!
+Classes are stored in the Heap (memory)
+Objects in the Heap are Reference types
+Reference types point to an object in memory and update the object in memory
+*/
+
+/*
+Structs are Fast!
+Structs are stored in the Stack(memory)
+Objects in the Stack are Value types
+Value types are copied & mutated
+*/
+
+//All the data neeedd for some screen
+class ScreenViewModel {
+    
+    let title: String //= ""
+    var showButton : Bool //= false
+    
+    //if no initized value we give init for initizing
+    
+    init(title: String, showButto : Bool){
+        self.title = title
+        self.showButton = showButto
+    }
+    
+    deinit {
+        //runs as the object is being removed from memory
+        //Structs do not have deinit!
+    }
+    
+    func hideButton(){
+        showButton  = false
+    }
+    
+    func updateShowButton(newValue: Bool){
+        showButton  = newValue
+    }
+}
+
+/*Notice that we are using a "let", because:
+ the object  itself is not changing
+ the data inside the object is changing
+ */
+let viewModel: ScreenViewModel = ScreenViewModel(title: "Screen 1", showButto: true)
+let value = viewModel.showButton
+
+//viewModel.showButton  = false
+
+viewModel.hideButton()
+viewModel.updateShowButton(newValue: false)
+
+
