@@ -51,9 +51,12 @@ func checkIfUserIsPremium2() -> Bool {
     return userIsPremium ?? false
 }
 
-let IsPremium = checkIfUserIsPremium2()
+let IsPremium = checkIfUserIsPremium()
+
+let IsPremium1 = checkIfUserIsPremium2()
 
 print(IsPremium)
+print(IsPremium1)
 
 
 //if-let
@@ -214,7 +217,7 @@ func checkIfUserSetup2() -> Bool {
 //Optional Chaining
 
 func getUsername() -> String? {
-    return "test"
+    return "listed"
 }
 
 func getTitle() -> String{
@@ -226,6 +229,8 @@ func getUserData() {
     
     //Get the count if the username is not nill.
     let count: Int? = username?.count ?? 0
+    
+    print("Count of Variable: ", count, ", Varaible: ", username)
     
     let title: String = getTitle()
     
@@ -239,6 +244,7 @@ func getUserData() {
     //if we get 100% sure on the count will come and username not nil use ! instead of ?
     //This will crash the Application if the username is Nil!
     let count3: Int = username!.count
+    print(count3)
 }
 
 getUserData()
