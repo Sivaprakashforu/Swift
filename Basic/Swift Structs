@@ -6,6 +6,17 @@ import Foundation
 //Objects in the Stack are Value types
 //Value types are copied & mutated
 
+struct Quiz {
+    let title: String
+    let dateCreated: Date
+}
+
+let myObject: String = "Hello World"
+
+//let myQuiz: Quiz = Quiz(title: "Quiz 1", dateCreated: .now)
+
+print(myObject)
+
 struct rectangle {
 
     var length: Double
@@ -20,19 +31,17 @@ struct rectangle {
 }
 
 var area = rectangle()
-print("area of rectangle is \(area.length*area.breadth)")
+print("area of rectangle is: \(area.length*area.breadth)")
 
 
 struct rectangle0 {
-
     //Properties with default Value
     var length = 6
     var breadth = 12
-
 }
 
 var area1 = rectangle0()
-print("area of rectangle is \(area1.length*area1.breadth)")
+print("area of rectangle is: \(area1.length*area1.breadth)")
 
 
 struct rectangle1 {
@@ -162,6 +171,7 @@ struct UserModel3{
 
 var user3: UserModel3 = UserModel3(name: "Nick", isPremimum: false)
 user3 = user3.markUserAsPremium(newValue:true)
+print(user3)
 
 //-----------------------
 
@@ -189,7 +199,4 @@ struct User5{
     let isNew: Bool
     //
 }
-
-
-
 
