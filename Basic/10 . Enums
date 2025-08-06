@@ -1,0 +1,70 @@
+import Foundation
+
+//Enum is the same as Struct except we know all cases at run time
+//It's not mutated
+
+struct Carmodel {
+    let brand: String
+    let model: String
+}
+
+var car1: Carmodel = Carmodel(brand: "Ford", model: "Fiesta")
+var car2: Carmodel = Carmodel(brand: "Ford", model: "Focus")
+var car3: Carmodel = Carmodel(brand: "Toyota", model: "Camry")
+
+struct CarModel1 {
+    let brand: CardBrandOption
+    let model: String
+}
+
+struct CarBrand{
+    let title: String
+}
+
+/*var brand1 = CarBrand(title: "Ford")
+var brand2 = CarBrand(title: "Toyota")
+
+var car11 = Carmodel(brand: brand1, model: "Fiesta")
+var car12 = Carmodel(brand: brand1, model: "Focus")
+var car13 = Carmodel(brand: brand2, model: "Camry")
+*/
+
+
+enum CardBrandOption{
+    case Ford, Toyota, Honda
+    
+    var title: String{
+        switch self {
+        case .Ford:
+            return "Ford"
+        case .Toyota:
+            return "Toyota"
+        case .Honda:
+            return "Honda"
+        default:
+            return "Default Value"
+            
+        }
+
+
+        /*if self == .Ford{
+            return "Ford"
+        } else if self == .Toyota{
+            return "Toyota"
+        } else {
+            return "Default Value"
+        }*/
+    }
+}
+
+var car21 = CarModel1(brand: .Ford, model: "Fiesta")
+var car22 = CarModel1(brand: .Ford, model: "Focus")
+var car23 = CarModel1(brand: .Toyota, model: "Camry")
+
+print(car1,"\n", car2, "\n",car3,"\n")
+
+print(car21, "\n", car22, "\n", car23,"\n")
+
+var fordBrand: CardBrandOption = .Ford
+
+print(fordBrand.title)
