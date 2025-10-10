@@ -1,0 +1,64 @@
+import Foundation
+
+var finalFruits: [String] = ["Apple","Orange","Banana", "Apple"]
+
+print(finalFruits)
+
+let item = finalFruits[1]
+
+var fruitSets: Set<String> = ["Apple","Orange","Banana","Apple"]
+
+print(fruitSets)
+
+var myFirstDictionary: [Int: String] = [
+    12 : "Apple",
+    24 : "Orange"
+]
+
+let item1 = myFirstDictionary[10]
+let item2 = myFirstDictionary[12]
+
+var anotherDictionary: [String: Bool] = [
+    "Apple" : true,
+    "Orange" : false
+]
+let item3 = anotherDictionary["Apple"]
+
+var differentDictionary: [String : String] = [
+    "abc" : "Apple",
+    "def" : "Banana"
+]
+
+let item4 = differentDictionary["abc"]
+
+differentDictionary["xyz"] = "Mango"
+
+differentDictionary.removeValue(forKey: "def")
+
+print(differentDictionary)
+
+struct PostModel {
+    let id: String
+    let title: String
+    let likeCount: Int
+}
+
+var postArray: [PostModel] = [
+    PostModel(id: "abc123", title: "Post 1", likeCount: 5),
+    PostModel(id: "def456", title: "Post 2", likeCount: 8),
+    PostModel(id: "xyz148", title: "Post 3", likeCount: 121),
+]
+
+if postArray.indices.contains(1){
+    let item = postArray[1]
+    print(item)
+}
+
+var postDict: [String:PostModel] = [
+    "abc123" : PostModel(id: "abc123", title: "Post 1", likeCount: 5),
+    "def456" : PostModel(id: "def456", title: "Post 2", likeCount: 8),
+    "xyz148" : PostModel(id: "xyz148", title: "Post 3", likeCount: 121),
+]
+
+let myNewItem = postDict["def456"]
+print(myNewItem)
