@@ -1,0 +1,107 @@
+import Foundation
+
+//Arrays, Sets
+
+var myTitle: String = "Hello, World"
+var myTitle1: String = "Hi, this is me"
+
+//Tuple
+
+func doSomething(value: (title1: String, title2: String)){
+    
+}
+
+doSomething(value: (myTitle,myTitle1))
+
+struct TitlesModel {
+    let title1: String
+    let title2: String
+}
+
+func doSomething(value: TitlesModel){
+    
+}
+
+doSomething(value: TitlesModel(title1: myTitle, title2: myTitle1))
+
+//----------------------------
+
+let apple = "Apple"
+let orange = "Orange"
+
+let fruits: [String] = ["Apple","Orange"]
+let fruits1: [String] = [apple, orange]
+let fruits2: Array<String> = [apple, orange]
+
+let myBools: [Bool] = [true, false, true, true, true, true, false]
+
+func doSomething1(value: [String]){
+    
+}
+
+var fruitsArray: [String] = ["Apple", "Orange", "Banana"]
+
+print(fruitsArray)
+
+let count = fruitsArray.count
+let firstItem = fruitsArray.first
+let lastItem = fruitsArray.last
+
+if let firstItem = fruitsArray.first{
+    print(fruitsArray.first)
+}
+
+//fruitsArray = fruitsArray + ["blueberry", "Strawberry"]
+
+//fruitsArray.append("Kiwi")
+//fruitsArray.append("Watermelon")
+
+fruitsArray.append(contentsOf:["Kiwi", "Mango"])
+print(fruitsArray)
+
+fruitsArray[1]
+
+if fruitsArray.indices.contains(4){
+    let item = fruitsArray[4]
+}
+
+let firstIndex = fruitsArray.indices.first
+let lastIndex = fruitsArray.indices.last
+
+fruitsArray.append("Watermelon")
+
+fruitsArray.insert("lemon", at: 2)
+
+fruitsArray.insert(contentsOf:["Grapes","Pomeogranate"], at: 4)
+
+print(fruitsArray)
+
+if fruitsArray.indices.contains(2){
+    fruitsArray.remove(at: 2)
+}
+
+print(fruitsArray)
+
+struct ProductModel {
+    let title: String
+    let price: Int
+}
+
+var myProducts: [ProductModel] = [
+    ProductModel(title: "Product 1", price: 50),
+    ProductModel(title: "Product 2", price: 5),
+    ProductModel(title: "Product 3", price: 1),
+    ProductModel(title: "Prodcut 4", price: 50),
+    ProductModel(title: "Product 5", price: 4),
+    ProductModel(title: "Product 6", price: 60),
+    ProductModel(title: "Product 7", price: 2),
+]
+
+
+var finalFruits: [String] = ["Apple", "Orange", "Banana", "Apple"]
+
+print(finalFruits)
+
+var fruitsSet: Set<String> = ["Apple", "Orange", "Banana", "Apple"]
+
+print(fruitsSet)
